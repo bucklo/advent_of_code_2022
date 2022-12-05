@@ -3,16 +3,26 @@ content = input_file.read().splitlines()
 
 def move_crate(stacks, crates, from_stack, to_stack):
   crates_to_move = stacks[from_stack][:crates]
+
   print(f"Moving {crates_to_move} from {from_stack} to {to_stack}")
 
-  print(f"Before: {stacks}")
+  print("Before:")
+  print(f"From stack: {stacks[from_stack]}")
+  print(f"To stack: {stacks[to_stack]}\n")
+
   # Delete the crates from the from_stack
   stacks[from_stack] = stacks[from_stack][crates:]
 
   # Add the crates to the beginning of the to_stack using insert
   for x in reversed(crates_to_move):
     stacks[to_stack].insert(0, x)
-  print(f"After: {stacks}")
+
+
+
+  print(f"After:")
+  print(f"From stack: {stacks[from_stack]}")
+  print(f"To stack: {stacks[to_stack]}")
+  print("--------------------\n")
 
   return stacks
 
@@ -39,4 +49,4 @@ for x in range (10, len(content)):
 
 for stack in stacks:
   # Print value of stack
-  print(f"Stack {stack} contains {stacks[stack]}")
+  print(f"Stack {stack} contains {stacks[stack][0]}")
