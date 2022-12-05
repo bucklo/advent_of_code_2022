@@ -19,12 +19,13 @@ for x in content:
   else:
     sum += int(x)
 
-first = (max(elves))
-print("First star: " + str(first))
+print(f"Biggest load: {max(elves)}")
 
-second = elves.remove(first)
-print(second)
+sorted_elves = sorted(elves)
 
-third = elves.remove([first, second])
+top_three = 0
+for x in sorted_elves[-3:]:
+  print(x)
+  top_three += x
 
-print(first, second, third)
+print(f"Top three: {top_three}")
